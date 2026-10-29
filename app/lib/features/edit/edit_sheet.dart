@@ -12,18 +12,18 @@ import 'edit_form.dart';
 /// Opens the add/edit sheet: a bottom sheet on a phone, a centred dialog on
 /// a wide window (frames 1e, 1j).
 Future<void> showEditSheet(BuildContext context, {EditForm? initial, Commitment? editing}) {
-  final p = DueTheme.of(context);
   final wide = MediaQuery.sizeOf(context).width >= DueSize.wideBreakpoint;
   final sheet = EditSheet(initial: initial ?? (editing == null ? null : EditForm.from(editing)));
+  // Colours come from the theme (see dueThemeData), not from this context,
+  // so the sheet follows a theme that changes while it is open.
   if (wide) {
     return showDialog<void>(
       context: context,
-      barrierColor: p.scrim,
-      builder: (_) => Center(
+      builder: (context) => Center(
         child: SizedBox(
           width: DueSize.sheetWide,
           child: Material(
-            color: p.paper,
+            color: DueTheme.of(context).paper,
             borderRadius: BorderRadius.circular(DueRadius.card),
             clipBehavior: Clip.antiAlias,
             child: sheet,
@@ -36,9 +36,6 @@ Future<void> showEditSheet(BuildContext context, {EditForm? initial, Commitment?
     context: context,
     isScrollControlled: true,
     useSafeArea: true,
-    backgroundColor: p.paper,
-    barrierColor: p.scrim,
-    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(DueRadius.card))),
     builder: (_) => sheet,
   );
 }

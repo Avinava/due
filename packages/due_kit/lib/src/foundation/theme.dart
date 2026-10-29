@@ -53,6 +53,15 @@ ThemeData dueThemeData(Brightness brightness) {
     splashFactory: NoSplash.splashFactory,
     highlightColor: Colors.transparent,
     textSelectionTheme: TextSelectionThemeData(cursorColor: p.accent, selectionColor: p.accentTint),
+    // Sheets and dialogs read their colours here, from the route's own
+    // context, so an open one follows a theme change.
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: p.paper,
+      modalBackgroundColor: p.paper,
+      modalBarrierColor: p.scrim,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(DueRadius.card))),
+    ),
+    dialogTheme: DialogThemeData(barrierColor: p.scrim),
     extensions: [due],
   );
 }

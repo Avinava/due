@@ -66,7 +66,9 @@ class _FrameSceneState extends State<FrameScene> {
         child: DueApp(
           router: buildRouter(initialLocation: spec.preset.location, navigatorKey: _navigator),
           wrap: (context, child) {
-            final mq = MediaQuery.of(context);
+            // The app reads its screen size from MediaQuery, which starts as
+            // the whole window; inside a frame the screen is the frame.
+            final mq = MediaQuery.of(context).copyWith(size: spec.kind.size);
             final framed = spec.kind == FrameKind.phone && widget.chrome
                 ? mq.copyWith(padding: PhoneFrame.safeArea, viewPadding: PhoneFrame.safeArea)
                 : mq;
