@@ -1,0 +1,17 @@
+name: Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gate:
+    # Goldens are rendered on macOS, so they are checked on macOS.
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - run: brew install ripgrep
+      - run: flutter pub get
+      - run: mise run gate
