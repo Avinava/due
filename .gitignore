@@ -1,0 +1,12 @@
+.DS_Store
+*.iml
+.idea/
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+build/
+coverage/
+**/ios/Flutter/.last_build_id
+**/failures/
+.widget_preview/
+

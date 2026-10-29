@@ -1,0 +1,34 @@
+[tools]
+flutter = "3.47.8"
+
+[tasks.gen]
+description = "Regenerate Dart and Swift tokens from design/tokens.json"
+run = "dart run tool/gen_tokens.dart"
+
+[tasks.gate]
+description = "Everything that must pass before a commit"
+run = "tool/gate.sh"
+
+[tasks.golden]
+description = "Re-render the 1a to 1o goldens after an intended UI change"
+dir = "catalog"
+run = "flutter test test/frames_golden_test.dart --update-goldens"
+
+[tasks.shots]
+description = "Render README screenshots and the hero image into docs/screenshots"
+dir = "catalog"
+run = "flutter test --tags shots"
+
+[tasks.kit]
+description = "Open the design kit catalog (Widgetbook) in Chrome"
+dir = "catalog"
+run = "flutter run -d chrome"
+
+[tasks.app]
+description = "Run the app on macOS"
+dir = "app"
+run = "flutter run -d macos"
+
+[tasks.web]
+description = "Build the app and the catalog for GitHub Pages into build/site (BASE=/due/ for a project site)"
+run = "tool/build_site.sh"
