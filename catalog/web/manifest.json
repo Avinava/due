@@ -1,0 +1,35 @@
+{
+    "name": "Due design kit",
+    "short_name": "Due kit",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#F6EFE3",
+    "theme_color": "#D8401C",
+    "description": "What a household has committed to pay this month, and what still needs you.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+name: due_catalog
+description: Due's catalog. Every kit component and every design frame (1a to 1o), plus the goldens and README screenshots made from them.
+publish_to: none
+version: 1.0.0
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  due:
+    path: ../app
+  due_kit:
+    path: ../packages/due_kit
+  flutter_riverpod: any
+  widgetbook: ^3.25.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
